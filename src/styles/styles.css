@@ -1,0 +1,121 @@
+
+/* Estilos personalizados */
+body {
+    font-family: 'Inter', sans-serif; /* Aplica la fuente Inter */
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Fondo negro base */
+    color: #fff; /* Texto blanco */
+    overflow: hidden; /* Evita el scroll de la página principal */
+}
+
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll; /* Habilita el scroll vertical para el contenedor */
+    scroll-snap-type: y mandatory; /* Forza el snap vertical */
+    scroll-behavior: smooth; /* Scroll suave */
+}
+
+.section {
+    height: 100vh; /* Cada sección ocupa toda la altura de la ventana */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start; /* Alinea el inicio de la sección con el viewport */
+    position: relative; /* Para posicionar elementos internos si es necesario */
+    background-size: cover;
+    background-position: center;
+    padding: 2rem; /* Añade padding */
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+    text-align: center; /* Centra el texto */
+}
+
+/* Fondos específicos para cada sección */
+#meteorito {
+    /* Fondo degradado oscuro con estrellas simuladas */
+    background: radial-gradient(ellipse at bottom, #3a3a3a 0%, #000000 70%);
+    /* Podrías añadir una imagen de meteorito aquí si lo deseas */
+}
+
+#luna {
+     /* Fondo degradado grisáceo simulando la luna */
+    background: radial-gradient(ellipse at center, #cccccc 0%, #555555 100%);
+    color: #1a1a1a; /* Texto oscuro para contraste en la luna */
+}
+
+#tierra {
+    /* Fondo degradado azul/verde simulando la tierra desde el espacio */
+    background: radial-gradient(ellipse at top, #3b82f6 0%, #1e3a8a 70%);
+}
+
+/* Estilos para el contenido */
+h1, h2 {
+    margin-bottom: 1rem;
+}
+
+p {
+    max-width: 600px; /* Limita el ancho del párrafo */
+    margin-bottom: 0.5rem;
+    line-height: 1.6; /* Mejora la legibilidad */
+}
+
+ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+    margin-top: 1rem;
+}
+
+li {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem; /* Bordes redondeados */
+    display: inline-block; /* Muestra los elementos en línea */
+    margin-right: 0.5rem; /* Espacio entre elementos */
+}
+
+#luna li {
+     background-color: rgba(0, 0, 0, 0.1); /* Fondo oscuro semitransparente en la luna */
+}
+
+/* Pequeña animación de "scroll down" */
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-left: 3px solid white;
+    border-bottom: 3px solid white;
+    transform: translateX(-50%) rotate(-45deg);
+    animation: bounce 2s infinite;
+}
+ #luna .scroll-down-arrow {
+     border-left: 3px solid #1a1a1a;
+     border-bottom: 3px solid #1a1a1a;
+ }
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) rotate(-45deg) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) rotate(-45deg) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) rotate(-45deg) translateY(-5px);
+    }
+}
+
+/* Estilos responsivos básicos */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    p { font-size: 0.9rem; }
+    li { display: block; margin-right: 0; } /* Apila los elementos en móvil */
+}
+
